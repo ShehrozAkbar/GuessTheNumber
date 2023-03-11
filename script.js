@@ -60,7 +60,7 @@ document.querySelector(".check").addEventListener("click", function () {
   }
 });
 
-// Again button event handler
+// Again button event handler to reset everything
 
 document.querySelector(".reset").addEventListener("click", function () {
   document.querySelector(".number").textContent = "?";
