@@ -119,6 +119,7 @@ footer {
   text-align: center;
   background-color: aliceblue;
   color: black;
+  padding: 10px;
 }
 
 @media (max-width: 510px) {
