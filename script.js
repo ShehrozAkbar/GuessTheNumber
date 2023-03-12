@@ -38,7 +38,7 @@ document.querySelector(".check").addEventListener("click", function () {
   }
   // this is the wrong state optimised
   else if (guessedVal !== rand) {
-    if (myscore > 1) {
+    if (myscore > 10) {
       //     5           15
       if (guessedVal >= rand - 5 && guessedVal < rand) {
         document.querySelector(".resultstate").textContent =
@@ -56,8 +56,8 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".resultstate").textContent =
         "You Lost 😕,Try again‼";
       document.querySelector("body").style.backgroundColor = "#ff6347";
-      document.querySelector(".gussed").style.visibility = "hidden";
-      document.querySelector(".check").style.visibility = "hidden";
+      document.querySelector(".gussed").style.display = "none";
+      document.querySelector(".check").style.display = "none";
     }
   }
   // this is the wrong state
