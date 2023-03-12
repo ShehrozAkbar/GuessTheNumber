@@ -86,6 +86,7 @@ header {
 
 .hint-msg {
   display: none;
+  padding: 0px 10px;
 }
 
 .hint {
