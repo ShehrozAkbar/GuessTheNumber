@@ -8,16 +8,11 @@ body {
   margin: 0;
   padding: 0;
   color: white;
-
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 30px;
 }
 
 body {
   background-color: #222;
+  height: 100vh;
 }
 
 .container {
@@ -120,6 +115,9 @@ footer {
   background-color: aliceblue;
   color: black;
   padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 @media (max-width: 510px) {
