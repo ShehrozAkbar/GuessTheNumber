@@ -1,7 +1,5 @@
 let rand = Math.trunc(Math.random() * 20) + 1;
 
-console.log(rand);
-
 let myscore = 20;
 let highestScore = 0;
 
@@ -17,8 +15,6 @@ document.querySelector(".check").addEventListener("click", function () {
   // this is a winning state
   else if (guessedVal === rand) {
     document.querySelector(".resultstate").textContent = "Hurray you Win 🥳";
-    highestScore = myscore;
-    document.querySelector(".highest").textContent = highestScore;
     // doing some CSS changes
     document.querySelector("body", "html").style.backgroundColor = "green";
     document.querySelector(".number").style.width = "100px";
@@ -27,35 +23,66 @@ document.querySelector(".check").addEventListener("click", function () {
 
     document.querySelector(".gussed").style.visibility = "hidden";
     document.querySelector(".check").style.visibility = "hidden";
+    // setting the highest score
+    if (myscore > highestScore) {
+      highestScore = myscore;
+      document.querySelector(".highest").textContent = highestScore;
+    }
+  }
+  // this is the wrong state optimised
+  else if (guessedVal !== rand) {
+    if (myscore > 1) {
+      //     5           15
+      if (guessedVal >= rand - 5 && guessedVal < rand) {
+        document.querySelector(".resultstate").textContent =
+          "Low, but closer 📉";
+      } else if (guessedVal <= rand + 5 && guessedVal > rand) {
+        document.querySelector(".resultstate").textContent =
+          "High, but closer 📈";
+      } else {
+        document.querySelector(".resultstate").textContent =
+          guessedVal > rand ? "Too High 📈" : "Too Low 📉";
+      }
+      myscore--;
+      document.querySelector(".score").textContent = myscore;
+    } else {
+      document.querySelector(".resultstate").textContent =
+        "You Lost 😕,Try again‼";
+      document.querySelector("body").style.backgroundColor = "#ff6347";
+      document.querySelector(".gussed").style.visibility = "hidden";
+      document.querySelector(".check").style.visibility = "hidden";
+    }
   }
   // this is the wrong state
-  else if (guessedVal > rand) {
-    if (myscore > 1) {
-      document.querySelector(".resultstate").textContent = "Too High 📈";
-      myscore--;
-      document.querySelector(".score").textContent = myscore;
-    } else {
-      document.querySelector(".resultstate").textContent =
-        "You Lost 😕,Try again‼";
-      document.querySelector("body").style.backgroundColor = "#ff6347";
-      document.querySelector(".gussed").style.visibility = "hidden";
-      document.querySelector(".check").style.visibility = "hidden";
-    }
-  }
-  // this is the wrong state too
-  else if (guessedVal < rand) {
-    if (myscore > 1) {
-      document.querySelector(".resultstate").textContent = "Too Low 📉";
-      myscore--;
-      document.querySelector(".score").textContent = myscore;
-    } else {
-      document.querySelector(".resultstate").textContent =
-        "You Lost 😕,Try again‼";
-      document.querySelector("body").style.backgroundColor = "#ff6347";
-      document.querySelector(".gussed").style.visibility = "hidden";
-      document.querySelector(".check").style.visibility = "hidden";
-    }
-  } else {
+
+  // else if (guessedVal > rand) {
+  //   if (myscore > 1) {
+  //     document.querySelector(".resultstate").textContent = "Too High 📈";
+  //     myscore--;
+  //     document.querySelector(".score").textContent = myscore;
+  //   } else {
+  //     document.querySelector(".resultstate").textContent =
+  //       "You Lost 😕,Try again‼";
+  //     document.querySelector("body").style.backgroundColor = "#ff6347";
+  //     document.querySelector(".gussed").style.visibility = "hidden";
+  //     document.querySelector(".check").style.visibility = "hidden";
+  //   }
+  // }
+  // // this is the wrong state too
+  // else if (guessedVal < rand) {
+  //   if (myscore > 1) {
+  //     document.querySelector(".resultstate").textContent = "Too Low 📉";
+  //     myscore--;
+  //     document.querySelector(".score").textContent = myscore;
+  //   } else {
+  //     document.querySelector(".resultstate").textContent =
+  //       "You Lost 😕,Try again‼";
+  //     document.querySelector("body").style.backgroundColor = "#ff6347";
+  //     document.querySelector(".gussed").style.visibility = "hidden";
+  //     document.querySelector(".check").style.visibility = "hidden";
+  //   }
+  // }
+  else {
     console.log("Thats an Error");
   }
 });
