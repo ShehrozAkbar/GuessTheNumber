@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding-bottom: 80px;
 }
 
 .btn {
@@ -115,9 +116,6 @@ footer {
   background-color: aliceblue;
   color: black;
   padding: 10px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 @media (max-width: 510px) {
