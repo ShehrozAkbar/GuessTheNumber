@@ -53,6 +53,8 @@ document.querySelector(".check").addEventListener("click", function () {
       myscore--;
       document.querySelector(".score").textContent = myscore;
     } else {
+      document.querySelector(".hint-btn").style.display = "none";
+
       document.querySelector(".resultstate").textContent =
         "You Lost 😕,Try again‼";
       document.querySelector("body").style.backgroundColor = "#ff6347";
